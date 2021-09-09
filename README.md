@@ -48,7 +48,7 @@ rly chains add -f kichain-t-4.json
 rly chains add -f groot-011.json
 ```
 
-* Create both wallets or recover for chains(umee-betanet-1 and kichain-t-4) in relayer
+* Create wallets for both chains(umee-betanet-1 and kichain-t-4) in relayer
 ```
 rly keys add kichain-t-4 WALLET-KEY-NAME
 rly keys add umee-betanet-1 WALLET-KEY-NAME
