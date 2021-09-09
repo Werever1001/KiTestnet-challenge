@@ -2,70 +2,96 @@
 ## Relayer between KiChain and Umee builded on Umee side
 
 * Install relayer
-    `git clone http@github.com:cosmos/relayer.git
-     git checkout v0.9.3
-     cd relayer && make install`
-
+    ```
+    git clone http@github.com:cosmos/relayer.git
+    git checkout v0.9.3
+    cd relayer && make install
+    ```
 * Init relayer config
-    `rly config init`
+    ```
+    rly config init
+    ```
 
 * Create config for two chains into directory relayer
-    `cd relayer && mkdir rly-config
-     cd rly-config`
+    ```
+    cd relayer && mkdir rly-config
+    cd rly-config
+    ```
 
 groot-011.json
-    `{  
+    ```
+    {  
       "chain-id": "umee-betanet-1",   
       "rpc-addr": "http://localhost:26657",    
       "account-prefix": "umee",   
       "gas-adjustment": 1.5,  
       "gas-prices": "0.025uumee",   
       "trusting-period": "48h" 
-    }` 
+    }
+    ```
 
 kichain-t-4.json
-    `{
+    ```
+    {
       "chain-id": "kichain-t-4",
       "rpc-addr": "https://rpc-challenge.blockchain.ki:443",
       "account-prefix": "tki",
       "gas-adjustment": 1.5,
       "gas-prices": "0.025utki",
       "trusting-period": "48h"
-    }`
+    }
+    ```
 
 * Parse this config files into relayer config
-    `rly chains add -f kichain-t-4.json`
-    `rly chains add -f groot-011.json`
+    ```
+    rly chains add -f kichain-t-4.json
+    rly chains add -f groot-011.json
+    ```
 
 * Create both wallets or recover for chains(umee-betanet-1 and kichain-t-4) in relayer
-    `rly keys add kichain-t-4 WALLET-KEY-NAME`
-    `rly keys add umee-betanet-1 WALLET-KEY-NAME`
+    ```
+    rly keys add kichain-t-4 WALLET-KEY-NAME
+    rly keys add umee-betanet-1 WALLET-KEY-NAME
+    ```
 
 * Add this wallet in config relayer
-    `rly chains edit kichain-t-4 key WALLET-KEY-NAME`
-    `rly chains edit umee-betanet-1 key WALLET-KEY-NAME`
+    ```
+    rly chains edit kichain-t-4 key WALLET-KEY-NAME
+    rly chains edit umee-betanet-1 key WALLET-KEY-NAME
+    ```
 
 * Change timeout for transaction into relayer config
-    `nano ~/.relayer/config/config.yaml`
+    ```
+    nano ~/.relayer/config/config.yaml
+    ```
 Change timeout value from 10s  to 60s
 
 * Filling both wallets and checking balances
-    `rly q balance kichain-t-4`
-    `rly q balance umee-betanet-1`
+    ```
+    rly q balance kichain-t-4
+    rly q balance umee-betanet-1
+    ```
     
 * Init clients for both chains
-    `rly light init kichain-t-4 -f`
-    `rly light init umee-betanet-1 -f`
+    ```
+    rly light init kichain-t-4 -f
+    rly light init umee-betanet-1 -f
+    ```
     
 * Create 2 channels between chains (from kichain-t-4 to umee-betanet-1 and from umee-betanet-1 to kichain-t-4)
-    `rly paths generate kichain-t-4 umee-betanet-1 fromki --port=transfer`
-    `rly paths generate umee-betanet-1 kichain-t-4 transfer --port=transfer`
+    ```
+    rly paths generate kichain-t-4 umee-betanet-1 fromki --port=transfer
+    rly paths generate umee-betanet-1 kichain-t-4 transfer --port=transfer
+    ```
     
 * Check is channels created
-    `rly paths list -d`
+    ```
+    rly paths list -d
+    ```
     
 final config.yaml looks:
-    `global:
+    ```
+    global:
       api-listen-addr: :5183
       timeout: 30s
       light-cache-size: 20
@@ -122,25 +148,38 @@ final config.yaml looks:
           order: UNORDERED
           version: ics20-1
         strategy:
-          type: naive`
+          type: naive
+          ```
 
 * Check is chains ready 
-    `rly chains list`
+    ```
+    rly chains list
+    ```
 output:
-    `0: kichain-t-4          -> key(✔) bal(✔) light(✔) path(✔)
-    1: umee-betanet-1       -> key(✔) bal(✔) light(✔) path(✔)`
+    ```
+    0: kichain-t-4          -> key(✔) bal(✔) light(✔) path(✔)
+    1: umee-betanet-1       -> key(✔) bal(✔) light(✔) path(✔)
+    ```
 
 * Open channels
-    `rly tx link fromki`
+    ```
+    rly tx link fromki
+    ```
 waiting output about succesful creatin channel
-    `rly tx link transfer`
+    ```
+    rly tx link transfer
+    ```
 waiting output about succesful creatin channel
 
 * If outputs are succesful - sending tokens
 from kichain-t-4 to umee-betanet-1:
-    `rly tx transfer kichain-t-4 umee-betanet-1 1000000utki YOUR_UMEE_WALLET_ADDRESS --path fromki`
+    ```
+    rly tx transfer kichain-t-4 umee-betanet-1 1000000utki YOUR_UMEE_WALLET_ADDRESS --path fromki
+    ```
 from umee-betanet-1 to kichain-t-4:
-    `rly tx transfer umee-betanet-1 kichain-t-4 1000000umee YOUR_KICHAIN_WALLET_ADDRESS --path transfer`
+    ```
+    rly tx transfer umee-betanet-1 kichain-t-4 1000000umee YOUR_KICHAIN_WALLET_ADDRESS --path transfer
+    ```
     
 # Congratulations!! We are done!
 
