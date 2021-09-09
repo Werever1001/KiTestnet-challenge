@@ -21,24 +21,24 @@
 groot-011.json
     ```
     {  
-      "chain-id": "umee-betanet-1",   
-      "rpc-addr": "http://localhost:26657",    
-      "account-prefix": "umee",   
-      "gas-adjustment": 1.5,  
-      "gas-prices": "0.025uumee",   
-      "trusting-period": "48h" 
+     "chain-id": "umee-betanet-1",   
+     "rpc-addr": "http://localhost:26657",    
+     "account-prefix": "umee",   
+     "gas-adjustment": 1.5,  
+     "gas-prices": "0.025uumee",   
+     "trusting-period": "48h" 
     }
     ```
 
 kichain-t-4.json
     ```
     {
-      "chain-id": "kichain-t-4",
-      "rpc-addr": "https://rpc-challenge.blockchain.ki:443",
-      "account-prefix": "tki",
-      "gas-adjustment": 1.5,
-      "gas-prices": "0.025utki",
-      "trusting-period": "48h"
+     "chain-id": "kichain-t-4",
+     "rpc-addr": "https://rpc-challenge.blockchain.ki:443",
+     "account-prefix": "tki",
+     "gas-adjustment": 1.5,
+     "gas-prices": "0.025utki",
+     "trusting-period": "48h"
     }
     ```
 
