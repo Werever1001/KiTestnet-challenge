@@ -93,7 +93,7 @@ final config.yaml looks:
 ```
 global:
   api-listen-addr: :5183
-  timeout: 30s
+  timeout: 60s
   light-cache-size: 20
 chains:
 - key: tki127jvzlucwkltfrd4qpnugmfhg3p7an2knhyt7x
