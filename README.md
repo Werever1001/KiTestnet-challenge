@@ -2,16 +2,16 @@
 ## Relayer between KiChain and Umee builded on Umee side
 
 * Install relayer
-    git clone http@github.com:cosmos/relayer.git
-    git checkout v0.9.3
-    cd relayer && make install
+        git clone http@github.com:cosmos/relayer.git
+        git checkout v0.9.3
+        cd relayer && make install
 
 * Init relayer config
-    rly config init
+        rly config init
 
 * Create config for two chains into directory relayer
-    cd relayer && mkdir rly-config
-    cd rly-config
+        cd relayer && mkdir rly-config
+        cd rly-config
 
 groot-011.json
     {  
@@ -147,6 +147,7 @@ from umee-betanet-1 to kichain-t-4:
 * hashes from transactions:
 
 from kichain-t-4 to umee-betanet-1:
+
 https://ki.thecodes.dev/tx/3A8B4800199BC88017E077671B0F629E8EB73F754AED1AEB2C7DAD9FBBAA6BCB
 https://ki.thecodes.dev/tx/CF8EF1DAFD1B221961D6A16F1574AD51FDB84A272FF2C614CF53C59CB4A1E765
 https://ki.thecodes.dev/tx/E980A4450CD51CC7082705559051FCF8F3B777ED76A30947E46A90DB31517FE2
@@ -154,6 +155,7 @@ https://ki.thecodes.dev/tx/CA7D63ED5A2074328F16E4E6E680D9CC077EBF57A901C7AA2E27E
 https://ki.thecodes.dev/tx/62A13D3A66F2D93B64EACB8C717B811F5E336450DB366C625B89A9AF5333468F
 
 from umee-betanet-1 to kichain-t-4:
+
 https://explorer-umee.nodes.guru/transactions/2D9797DE98FF135233C57AA886011D569E8A2DF8EAF6D1BEA50B7619E31F9832
 https://explorer-umee.nodes.guru/transactions/DFC0292B209BE707DE8CCFA9A531290278510D8A9C37A21F8AD95576650B8DBB
 https://explorer-umee.nodes.guru/transactions/0634A6162713CAFB118BD294DD2F0A22AFED634BCA5BA9404F1A089A6ACDA29C
